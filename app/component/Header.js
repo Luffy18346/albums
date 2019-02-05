@@ -1,27 +1,36 @@
 import React, { Component } from "react";
 import { Text, View, StyleSheet, Platform } from "react-native";
 
-const Header = (props) => {
+const Header = props => {
   return (
     <View style={styles.containerStyle}>
-      <Text style={styles.textStyle}>
-        {props.title}
-      </Text>
+      <Text style={styles.textStyle}>{props.headerTitle}</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   containerStyle: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: Platform.OS === 'ios' ? 16 : 0,
     height: 60,
-    backgroundColor: "#F8F8F8"
+    backgroundColor: "#F8F8F8",
+    alignItems: "center",
+    justifyContent: "center",
+    position: 'relative',
+    ...Platform.select({
+      ios: {
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 3 },
+        shadowOpacity: 0.2,
+        marginTop: 16
+      },
+      android: {
+        elevation: 3
+      }
+    })
   },
   textStyle: {
-    fontSize: 20
+    fontSize: 20,
+    color: '#880000'
   }
 });
 
