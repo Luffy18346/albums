@@ -14,7 +14,7 @@ import Header from "./app/component/Header";
 
 // create a component
 
-const App = () => <Header />;
+const App = () => <Header title='Albums' />;
 
 // Render it to device
 export default App;
